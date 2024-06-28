@@ -9,11 +9,16 @@ const onhandlechange = (e) => {
     }
 
     else if (name === "discoutPer") {
-        dis.hidden = true
-        per.value = value
-        dis.value = (value / 100) * total.value
-        dis.hidden = false
-        console.log("Discount amount", dis.value)
+        per.value = parseFloat(value)
+        if(parseFloat(value) > 100)
+            {
+                alert("Only Type between 1 to 100")
+                return
+            }
+           else{
+             dis.value = (value / 100) * total.value
+            console.log("Discount amount", dis.value)
+           }
     }
     else if (name === "discountRs") {
         dis.value = value
